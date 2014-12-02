@@ -1,0 +1,96 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <!--
+    <NumberPicker
+        android:id="@+id/leftWheelNumberPicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical" />
+        -->
+
+
+        <!--
+    <NumberPicker
+        android:id="@+id/rightWheelNumberPicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/leftWheelNumberPicker" />
+        -->
+
+        <EditText
+            android:id="@+id/numPpl"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/numPpl"
+            android:inputType="number"
+            android:visibility="visible" >
+
+            <!-- android:backgroundTint="fffffacd" -->
+
+            <requestFocus />
+        </EditText>
+
+        <EditText
+            android:id="@+id/Alice"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/p1"
+            android:inputType="textPersonName"
+            android:visibility="visible" />
+
+        <EditText
+            android:id="@+id/Bob"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/p2"
+            android:inputType="textPersonName"
+            android:visibility="visible" />
+
+        <EditText
+            android:id="@+id/Carol"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/p3"
+            android:inputType="textPersonName"
+            android:visibility="visible" />
+
+        <!--
+             Dan
+        	Erin
+        	Frank
+        	Gena
+        	Heather
+        	I
+        	Jack
+        	K
+        	L
+        	Mike
+        	Neil
+        	O
+        	P
+        	Q
+        	R
+        	S
+        	T
+        	U
+        	V
+        	W
+        	X
+        	Y
+        	Z
+        -->
+    </LinearLayout>
+
+</ScrollView>
