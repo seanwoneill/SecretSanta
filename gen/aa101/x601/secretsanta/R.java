@@ -14,15 +14,28 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int leftWheelNumberPicker=0x7f060000;
-        public static final int rightWheelNumberPicker=0x7f060001;
+        public static final int Alice=0x7f060001;
+        public static final int Bob=0x7f060002;
+        public static final int Carol=0x7f060003;
+        public static final int numPpl=0x7f060000;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
     }
     public static final class string {
         public static final int app_name=0x7f040000;
-        public static final int hello_world=0x7f040001;
+        /**  Main .xml inpt field strings 
+         */
+        public static final int numPpl=0x7f040001;
+        public static final int p1=0x7f040002;
+        public static final int p2=0x7f040003;
+        public static final int p3=0x7f040004;
+        public static final int p4=0x7f040005;
+        public static final int p5=0x7f040006;
+        public static final int p6=0x7f040007;
+        public static final int p7=0x7f040008;
+        public static final int p8=0x7f040009;
+        public static final int p9=0x7f04000a;
     }
     public static final class style {
         /** 
