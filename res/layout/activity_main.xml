@@ -9,32 +9,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
-        <!--
-    <NumberPicker
-        android:id="@+id/leftWheelNumberPicker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:gravity="center_vertical" />
-        -->
-
-
-        <!--
-    <NumberPicker
-        android:id="@+id/rightWheelNumberPicker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@id/leftWheelNumberPicker" />
-        -->
-
         <EditText
             android:id="@+id/numPpl"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/numPpl"
-            android:inputType="number"
+            android:inputType="numberSigned"
             android:visibility="visible" >
 
             <!-- android:backgroundTint="fffffacd" -->

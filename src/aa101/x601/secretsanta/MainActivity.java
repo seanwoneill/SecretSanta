@@ -48,6 +48,7 @@ public class MainActivity extends Activity implements TextWatcher {
 		int numPplTry = 0;
 		try {
 			numPplTry = Integer.parseInt(numPpl.getText().toString());
+			System.in.read();
 			if (numPplTry > 20) {
 				numPplTry = 20;
 				Toast.makeText(
