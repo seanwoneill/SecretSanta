@@ -1,5 +1,5 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     tools:context="${relativePackage}.${activityClass}" >
@@ -12,7 +12,8 @@
         <EditText
             android:id="@+id/numPpl"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:ems="10"
             android:hint="@string/numPpl"
             android:inputType="number|text"
@@ -26,7 +27,8 @@
         <EditText
             android:id="@+id/Alice"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:hint="@string/p1"
             android:inputType="textPersonName"
             android:visibility="visible" />
@@ -34,7 +36,8 @@
         <EditText
             android:id="@+id/Bob"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:hint="@string/p2"
             android:inputType="textPersonName"
             android:visibility="gone" />
@@ -42,36 +45,89 @@
         <EditText
             android:id="@+id/Carol"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:hint="@string/p3"
             android:inputType="textPersonName"
             android:visibility="gone" />
 
-        <!--
-             Dan
-        	Erin
-        	Frank
-        	Gena
-        	Heather
-        	I
-        	Jack
-        	K
-        	L
-        	Mike
-        	Neil
-        	O
-        	P
-        	Q
-        	R
-        	S
-        	T
-        	U
-        	V
-        	W
-        	X
-        	Y
-        	Z
-        -->
+        <EditText
+            android:id="@+id/Dan"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:hint="@string/p4"
+            android:inputType="textPersonName"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/Erin"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:hint="@string/p5"
+            android:inputType="textPersonName"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/Frank"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:hint="@string/p6"
+            android:inputType="textPersonName"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/Gena"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:hint="@string/p7"
+            android:inputType="textPersonName"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/Heather"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:hint="@string/p8"
+            android:inputType="textPersonName"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/John"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:hint="@string/p9"
+            android:inputType="textPersonName"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/Karen"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:hint="@string/p10"
+            android:inputType="textPersonName"
+            android:visibility="gone" />
+
+        <ImageButton
+            android:id="@+id/enterButton"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/vader"
+            android:longClickable="true"
+            android:onClick="enterContactsInfo"
+            android:padding="8dp"
+            android:scaleType="center"
+            android:src="@drawable/xmasvader"
+            android:visibility="invisible" />
     </LinearLayout>
 
 </ScrollView>

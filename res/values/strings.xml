@@ -14,5 +14,10 @@
     <string name="p7">7</string>
     <string name="p8">8</string>
     <string name="p9">9</string>
+    <string name="p10">10</string>
+
+    <!-- Other strings in main .xml -->
+    <string name="Enter">Enter</string>
+    <string name="vader">Holiday Vader</string>
 
 </resources>
