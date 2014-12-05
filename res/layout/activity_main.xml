@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/numPpl"
-            android:inputType="numberSigned"
+            android:inputType="number|text"
             android:visibility="visible" >
 
             <!-- android:backgroundTint="fffffacd" -->
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/p2"
             android:inputType="textPersonName"
-            android:visibility="visible" />
+            android:visibility="gone" />
 
         <EditText
             android:id="@+id/Carol"
@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/p3"
             android:inputType="textPersonName"
-            android:visibility="visible" />
+            android:visibility="gone" />
 
         <!--
              Dan
