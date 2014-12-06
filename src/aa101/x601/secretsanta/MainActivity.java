@@ -3,7 +3,10 @@ package aa101.x601.secretsanta;
 import java.util.Arrays;
 import java.util.List;
 
+import aa101.x501.linkedmedia.MainActivity;
+import aa101.x501.linkedmedia.PianoActivity;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -12,6 +15,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.EditText;
+import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
 
 public class MainActivity extends Activity implements TextWatcher {
@@ -21,6 +25,7 @@ public class MainActivity extends Activity implements TextWatcher {
 			Karen;
 	View vader;
 	Animation vaderAnim;
+	List<String> actualNames;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -76,14 +81,15 @@ public class MainActivity extends Activity implements TextWatcher {
 						getApplicationContext(),
 						"There cannot be more than 10 participants.\nNumber of participants has defaulted to 10.",
 						Toast.LENGTH_LONG).show();
-				Log.d(TAG, "numPpl entered in try/if: " + numPpl);
+				// Log.d(TAG, "numPpl entered in try/if: " + numPpl);
 			} else {
 				numPplTry = Integer.parseInt(numPpl.getText().toString());
 				Log.d(TAG, "numPpl entered in try/else: " + numPpl);
 			}
 		} catch (Exception e) {
-			Log.e(TAG, "Number of participants user entry: Not a valid number",
-					e);
+			// Log.e(TAG,
+			// "Number of participants user entry: Not a valid number",
+			// e);
 		}
 
 		List<EditText> viewsList = Arrays.asList(Alice, Bob, Carol, Dan, Erin,
@@ -94,19 +100,21 @@ public class MainActivity extends Activity implements TextWatcher {
 		for (int x = 1; x < viewsList.size(); x++) {
 			if (x < numPplTry
 					&& viewsList.get(x).getVisibility() == View.VISIBLE) {
-				Log.e(TAG, "1: valid range & visible");
+				// Log.e(TAG, "1: valid range & visible");
 				continue;
 			} else if (x >= numPplTry
 					&& viewsList.get(x).getVisibility() == View.VISIBLE) {
-				Log.e(TAG, "2: invalid range & visible");
+				// Log.e(TAG, "2: invalid range & visible");
 				viewsList.get(x).setVisibility(View.GONE);
+				actualNames= viewsList.get(x).toString();
 			} else if (x < numPplTry
 					&& viewsList.get(x).getVisibility() != View.VISIBLE) {
-				Log.e(TAG, "3: valid range & not visible");
-				Log.d(TAG, "set visible; x:numPplTry: " + x + " , " + numPplTry);
+				// Log.e(TAG, "3: valid range & not visible");
+				// Log.d(TAG, "set visible; x:numPplTry: " + x + " , " +
+				// numPplTry);
 				viewsList.get(x).setVisibility(View.VISIBLE);
 			} else {
-				Log.e(TAG, "4: default; set GONE");
+				// Log.e(TAG, "4: default; set GONE");
 				viewsList.get(x).setVisibility(View.GONE);
 			}
 		}
@@ -116,27 +124,30 @@ public class MainActivity extends Activity implements TextWatcher {
 		if (numPplTry < 10 && numPplTry > 0) {
 			Boolean lastFieldFilled = viewsList.get(numPplTry - 1).getText()
 					.toString().trim().length() != 0;
-			if (lastFieldFilled
-					&& viewsList.get(numPplTry).getVisibility() != View.VISIBLE) {
+			if (lastFieldFilled && vader.getVisibility() != View.VISIBLE) {
 				Log.e(TAG, "animation - visible");
 				vader.setVisibility(View.VISIBLE);
 				vaderAnim = AnimationUtils.makeInAnimation(this, true);
 				vader.startAnimation(vaderAnim);
-			} else if (lastFieldFilled
-					&& viewsList.get(numPplTry).getVisibility() == View.VISIBLE) {
-				Log.e(TAG, "animation - invisible");
+			} else if (!lastFieldFilled
+					&& vader.getVisibility() == View.VISIBLE) {
+				Log.e(TAG,
+						"animation - invisible; lastFieldFilled: "
+								+ lastFieldFilled + " ,vader vis.:"
+								+ vader.getVisibility());
 				vaderAnim = AnimationUtils.makeOutAnimation(this, true);
 				vader.setVisibility(View.INVISIBLE);
 				vader.startAnimation(vaderAnim);
-			} else {
-				vader.setVisibility(View.INVISIBLE);
 			}
-
 		}
+		
+		for (int y = 0; y < viewsList.size(); y++) {
 	}
 
 	// After entering contacts name and starting new activity, enter contact
 	// info (phone number or email address) and send out secret santas.
 	public void enterContactsInfo() {
+		Intent contactIntent = new Intent(MainActivity.this, PianoActivity.class);
+		MainActivity.this.startActivity(pianoIntent);
 	}
 }
