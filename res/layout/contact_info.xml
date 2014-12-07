@@ -1,18 +1,232 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="match_parent" >
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-        
-    <EditText
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="1"
-        android:>
-    </LinearLayout>
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/name0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/name0"
+            android:inputType="none"
+            android:minEms="5"
+            android:visibility="visible" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/number0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/name0"
+            android:hint="@string/phone"
+            android:inputType="phone"
+            android:visibility="visible" >
+
+            <requestFocus />
+        </EditText>
+
+        <EditText
+            android:id="@+id/name1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name0"
+            android:hint="@string/name1"
+            android:inputType="none"
+            android:minEms="5"
+            android:visibility="visible" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/number1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/number0"
+            android:layout_toRightOf="@id/name1"
+            android:hint="@string/phone"
+            android:inputType="phone"
+            android:visibility="visible" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/name2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name1"
+            android:hint="@string/name2"
+            android:inputType="none"
+            android:minEms="5"
+            android:visibility="visible" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/number2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/number1"
+            android:layout_toRightOf="@id/name2"
+            android:hint="@string/phone"
+            android:inputType="phone"
+            android:visibility="visible" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/name3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name2"
+            android:hint="@string/name3"
+            android:inputType="none"
+            android:minEms="5"
+            android:visibility="visible" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/number3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/number2"
+            android:layout_toRightOf="@id/name3"
+            android:hint="@string/phone"
+            android:inputType="phone"
+            android:visibility="visible" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/name4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name3"
+            android:hint="@string/name4"
+            android:inputType="none"
+            android:minEms="5"
+            android:visibility="visible" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/number4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/number3"
+            android:layout_toRightOf="@id/name4"
+            android:hint="@string/phone"
+            android:inputType="phone"
+            android:visibility="visible" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/name5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name4"
+            android:hint="@string/name5"
+            android:inputType="none"
+            android:minEms="5"
+            android:visibility="visible" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/number5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/number4"
+            android:layout_toRightOf="@id/name5"
+            android:hint="@string/phone"
+            android:inputType="phone"
+            android:visibility="visible" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/name6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name5"
+            android:hint="@string/name6"
+            android:inputType="none"
+            android:minEms="5"
+            android:visibility="visible" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/number6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/number5"
+            android:layout_toRightOf="@id/name6"
+            android:hint="@string/phone"
+            android:inputType="phone"
+            android:visibility="visible" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/name7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name6"
+            android:hint="@string/name7"
+            android:inputType="none"
+            android:minEms="5"
+            android:visibility="visible" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/number7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/number6"
+            android:layout_toRightOf="@id/name7"
+            android:hint="@string/phone"
+            android:inputType="phone"
+            android:visibility="visible" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/name8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name7"
+            android:hint="@string/name8"
+            android:inputType="none"
+            android:minEms="5"
+            android:visibility="visible" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/number8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/number7"
+            android:layout_toRightOf="@id/name8"
+            android:hint="@string/phone"
+            android:inputType="phone"
+            android:visibility="visible" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/name9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name8"
+            android:hint="@string/name9"
+            android:inputType="none"
+            android:minEms="5"
+            android:visibility="visible" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/number9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/number8"
+            android:layout_toRightOf="@id/name9"
+            android:hint="@string/phone"
+            android:inputType="phone"
+            android:visibility="visible" >
+        </EditText>
+    </RelativeLayout>
 
 </ScrollView>

@@ -20,4 +20,17 @@
     <string name="Enter">Enter</string>
     <string name="vader">Holiday Vader</string>
 
+    <!-- Strings for Contact Info .xml -->
+    <string name="phone">Phone Number</string>
+    <string name="name0">Alice</string>
+    <string name="name1">Bob</string>
+    <string name="name2">Carol</string>
+    <string name="name3">Dan</string>
+    <string name="name4">Erin</string>
+    <string name="name5">Frank</string>
+    <string name="name6">Gena</string>
+    <string name="name7">Heather</string>
+    <string name="name8">John</string>
+    <string name="name9">Karen</string>
+
 </resources>

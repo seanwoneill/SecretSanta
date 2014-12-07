@@ -3,10 +3,7 @@ package aa101.x601.secretsanta;
 import java.util.Arrays;
 import java.util.List;
 
-import aa101.x501.linkedmedia.MainActivity;
-import aa101.x501.linkedmedia.PianoActivity;
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -15,7 +12,6 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.EditText;
-import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
 
 public class MainActivity extends Activity implements TextWatcher {
@@ -23,9 +19,13 @@ public class MainActivity extends Activity implements TextWatcher {
 	private static final String TAG = MainActivity.class.getSimpleName();
 	EditText numPpl, Alice, Bob, Carol, Dan, Erin, Frank, Gena, Heather, John,
 			Karen;
+	List<EditText> viewsList = Arrays.asList(Alice, Bob, Carol, Dan, Erin,
+			Frank, Gena, Heather, John, Karen);
+	int numPplTry;
 	View vader;
 	Animation vaderAnim;
-	List<String> actualNames;
+	List<String> actualNames = Arrays.asList("Alice", "Bob", "Carol", "Dan",
+			"Erin", "Frank", "Gena", "Heather", "John", "Karen");
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +72,7 @@ public class MainActivity extends Activity implements TextWatcher {
 
 		// Use try/catch to ensure numPpl input from user <= 10 and integer
 		// Force to 10 if > 10
-		int numPplTry = 0;
+		// int numPplTry = 0;
 		try {
 			numPplTry = Integer.parseInt(numPpl.getText().toString());
 			if (numPplTry > 10) {
@@ -81,19 +81,18 @@ public class MainActivity extends Activity implements TextWatcher {
 						getApplicationContext(),
 						"There cannot be more than 10 participants.\nNumber of participants has defaulted to 10.",
 						Toast.LENGTH_LONG).show();
-				// Log.d(TAG, "numPpl entered in try/if: " + numPpl);
+				// Log.d(TAG, "numPpl entered in try/if: " + numPplTry);
 			} else {
 				numPplTry = Integer.parseInt(numPpl.getText().toString());
-				Log.d(TAG, "numPpl entered in try/else: " + numPpl);
+				// Log.d(TAG, "numPpl entered in try/else: " + numPplTry);
 			}
 		} catch (Exception e) {
-			// Log.e(TAG,
-			// "Number of participants user entry: Not a valid number",
-			// e);
+			Log.e(TAG, "Number of participants user entry: Not a valid number",
+					e);
 		}
 
-		List<EditText> viewsList = Arrays.asList(Alice, Bob, Carol, Dan, Erin,
-				Frank, Gena, Heather, John, Karen);
+		viewsList = Arrays.asList(Alice, Bob, Carol, Dan, Erin, Frank, Gena,
+				Heather, John, Karen);
 
 		// Iterate over list of EditText fields to set which are visible
 		// based on user input of number of participants (numPplTry).
@@ -106,7 +105,6 @@ public class MainActivity extends Activity implements TextWatcher {
 					&& viewsList.get(x).getVisibility() == View.VISIBLE) {
 				// Log.e(TAG, "2: invalid range & visible");
 				viewsList.get(x).setVisibility(View.GONE);
-				actualNames= viewsList.get(x).toString();
 			} else if (x < numPplTry
 					&& viewsList.get(x).getVisibility() != View.VISIBLE) {
 				// Log.e(TAG, "3: valid range & not visible");
@@ -117,37 +115,67 @@ public class MainActivity extends Activity implements TextWatcher {
 				// Log.e(TAG, "4: default; set GONE");
 				viewsList.get(x).setVisibility(View.GONE);
 			}
+			// Log.d(TAG, "actualNames<" + x + ">: " + actualNames.get(x));
 		}
 
-		Log.d(TAG, "Before first 'if'; numPplTry: " + numPplTry);
+		// Log.d(TAG, "Before first 'if'; numPplTry: " + numPplTry);
 		vader = findViewById(R.id.enterButton);
 		if (numPplTry < 10 && numPplTry > 0) {
 			Boolean lastFieldFilled = viewsList.get(numPplTry - 1).getText()
 					.toString().trim().length() != 0;
 			if (lastFieldFilled && vader.getVisibility() != View.VISIBLE) {
-				Log.e(TAG, "animation - visible");
+				// Log.e(TAG, "animation - visible");
 				vader.setVisibility(View.VISIBLE);
 				vaderAnim = AnimationUtils.makeInAnimation(this, true);
 				vader.startAnimation(vaderAnim);
 			} else if (!lastFieldFilled
 					&& vader.getVisibility() == View.VISIBLE) {
-				Log.e(TAG,
-						"animation - invisible; lastFieldFilled: "
-								+ lastFieldFilled + " ,vader vis.:"
-								+ vader.getVisibility());
+				// Log.e(TAG,
+				// "animation - invisible; lastFieldFilled: "
+				// + lastFieldFilled + " ,vader vis.:"
+				// + vader.getVisibility());
 				vaderAnim = AnimationUtils.makeOutAnimation(this, true);
 				vader.setVisibility(View.INVISIBLE);
 				vader.startAnimation(vaderAnim);
 			}
 		}
-		
-		for (int y = 0; y < viewsList.size(); y++) {
 	}
 
 	// After entering contacts name and starting new activity, enter contact
 	// info (phone number or email address) and send out secret santas.
-	public void enterContactsInfo() {
-		Intent contactIntent = new Intent(MainActivity.this, PianoActivity.class);
-		MainActivity.this.startActivity(pianoIntent);
+
+	public void enterContactsInfo(View v) {
+		EditText infoAlice = (EditText) findViewById(R.id.name0);
+		EditText infoBob = (EditText) findViewById(R.id.name1);
+		EditText infoCarol = (EditText) findViewById(R.id.name2);
+		EditText infoDan = (EditText) findViewById(R.id.name3);
+		EditText infoErin = (EditText) findViewById(R.id.name4);
+		EditText infoFrank = (EditText) findViewById(R.id.name5);
+		EditText infoGena = (EditText) findViewById(R.id.name6);
+		EditText infoHeather = (EditText) findViewById(R.id.name7);
+		EditText infoJohn = (EditText) findViewById(R.id.name8);
+		EditText infoKaren = (EditText) findViewById(R.id.name9);
+
+		List<EditText> infoNames = Arrays.asList(infoAlice, infoBob, infoCarol,
+				infoDan, infoErin, infoFrank, infoGena, infoHeather, infoJohn,
+				infoKaren);
+
+//		// Set visibility of all name fields in Contact Info .xml
+//		for (int a = 1; a < actualNames.size() && a < numPplTry; a++) {
+//			infoNames.get(a).setVisibility(View.VISIBLE);
+//		}
+
+		/*
+		 * for (int y = 0; y < actualNames.size() && y < numPplTry; y++) { //
+		 * String fieldFilled = viewsList.get(y).getText().toString(); //
+		 * Log.d(TAG, "fieldFilled: " + fieldFilled); // actualNames.set(y,
+		 * fieldFilled); // Log.d(TAG, "actualNames(" + y + "): " +
+		 * actualNames.get(y)); EditText nameField = infoNames.get(y); nameField
+		 * = viewsList.get(y); }
+		 */
+
+		setContentView(R.layout.contact_info);
+
 	}
+
 }
