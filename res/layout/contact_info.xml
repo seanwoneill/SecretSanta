@@ -38,7 +38,7 @@
             android:hint="@string/name1"
             android:inputType="none"
             android:minEms="5"
-            android:visibility="visible" >
+            android:visibility="invisible" >
         </EditText>
 
         <EditText
@@ -49,7 +49,7 @@
             android:layout_toRightOf="@id/name1"
             android:hint="@string/phone"
             android:inputType="phone"
-            android:visibility="visible" >
+            android:visibility="invisible" >
         </EditText>
 
         <EditText
@@ -60,7 +60,7 @@
             android:hint="@string/name2"
             android:inputType="none"
             android:minEms="5"
-            android:visibility="visible" >
+            android:visibility="invisible" >
         </EditText>
 
         <EditText
@@ -71,7 +71,7 @@
             android:layout_toRightOf="@id/name2"
             android:hint="@string/phone"
             android:inputType="phone"
-            android:visibility="visible" >
+            android:visibility="invisible" >
         </EditText>
 
         <EditText
@@ -82,7 +82,7 @@
             android:hint="@string/name3"
             android:inputType="none"
             android:minEms="5"
-            android:visibility="visible" >
+            android:visibility="invisible" >
         </EditText>
 
         <EditText
@@ -93,7 +93,7 @@
             android:layout_toRightOf="@id/name3"
             android:hint="@string/phone"
             android:inputType="phone"
-            android:visibility="visible" >
+            android:visibility="invisible" >
         </EditText>
 
         <EditText
@@ -104,7 +104,7 @@
             android:hint="@string/name4"
             android:inputType="none"
             android:minEms="5"
-            android:visibility="visible" >
+            android:visibility="invisible" >
         </EditText>
 
         <EditText
@@ -115,7 +115,7 @@
             android:layout_toRightOf="@id/name4"
             android:hint="@string/phone"
             android:inputType="phone"
-            android:visibility="visible" >
+            android:visibility="invisible" >
         </EditText>
 
         <EditText
@@ -126,7 +126,7 @@
             android:hint="@string/name5"
             android:inputType="none"
             android:minEms="5"
-            android:visibility="visible" >
+            android:visibility="invisible" >
         </EditText>
 
         <EditText
@@ -137,7 +137,7 @@
             android:layout_toRightOf="@id/name5"
             android:hint="@string/phone"
             android:inputType="phone"
-            android:visibility="visible" >
+            android:visibility="invisible" >
         </EditText>
 
         <EditText
@@ -148,7 +148,7 @@
             android:hint="@string/name6"
             android:inputType="none"
             android:minEms="5"
-            android:visibility="visible" >
+            android:visibility="invisible" >
         </EditText>
 
         <EditText
@@ -159,7 +159,7 @@
             android:layout_toRightOf="@id/name6"
             android:hint="@string/phone"
             android:inputType="phone"
-            android:visibility="visible" >
+            android:visibility="invisible" >
         </EditText>
 
         <EditText
@@ -170,7 +170,7 @@
             android:hint="@string/name7"
             android:inputType="none"
             android:minEms="5"
-            android:visibility="visible" >
+            android:visibility="invisible" >
         </EditText>
 
         <EditText
@@ -181,7 +181,7 @@
             android:layout_toRightOf="@id/name7"
             android:hint="@string/phone"
             android:inputType="phone"
-            android:visibility="visible" >
+            android:visibility="invisible" >
         </EditText>
 
         <EditText
@@ -192,7 +192,7 @@
             android:hint="@string/name8"
             android:inputType="none"
             android:minEms="5"
-            android:visibility="visible" >
+            android:visibility="invisible" >
         </EditText>
 
         <EditText
@@ -203,7 +203,7 @@
             android:layout_toRightOf="@id/name8"
             android:hint="@string/phone"
             android:inputType="phone"
-            android:visibility="visible" >
+            android:visibility="invisible" >
         </EditText>
 
         <EditText
@@ -214,7 +214,7 @@
             android:hint="@string/name9"
             android:inputType="none"
             android:minEms="5"
-            android:visibility="visible" >
+            android:visibility="invisible" >
         </EditText>
 
         <EditText
@@ -225,7 +225,7 @@
             android:layout_toRightOf="@id/name9"
             android:hint="@string/phone"
             android:inputType="phone"
-            android:visibility="visible" >
+            android:visibility="invisible" >
         </EditText>
     </RelativeLayout>
 

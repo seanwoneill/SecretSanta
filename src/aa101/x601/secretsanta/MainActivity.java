@@ -18,7 +18,10 @@ public class MainActivity extends Activity implements TextWatcher {
 
 	private static final String TAG = MainActivity.class.getSimpleName();
 	EditText numPpl, Alice, Bob, Carol, Dan, Erin, Frank, Gena, Heather, John,
-			Karen;
+			Karen, infoAlice, infoBob, infoCarol, infoDan, infoErin, infoFrank,
+			infoGena, infoHeather, infoJohn, infoKaren, numAlice, numBob,
+			numCarol, numDan, numErin, numFrank, numGena, numHeather, numJohn,
+			numKaren;
 	List<EditText> viewsList = Arrays.asList(Alice, Bob, Carol, Dan, Erin,
 			Frank, Gena, Heather, John, Karen);
 	int numPplTry;
@@ -26,12 +29,19 @@ public class MainActivity extends Activity implements TextWatcher {
 	Animation vaderAnim;
 	List<String> actualNames = Arrays.asList("Alice", "Bob", "Carol", "Dan",
 			"Erin", "Frank", "Gena", "Heather", "John", "Karen");
+	List<EditText> infoNames = Arrays.asList(infoAlice, infoBob, infoCarol,
+			infoDan, infoErin, infoFrank, infoGena, infoHeather, infoJohn,
+			infoKaren);
+
+	List<EditText> numNames = Arrays.asList(numAlice, numBob, numCarol, numDan,
+			numErin, numFrank, numGena, numHeather, numJohn, numKaren);
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		// EditText pointers for activity_main.xml
 		numPpl = (EditText) findViewById(R.id.numPpl);
 		numPpl.addTextChangedListener(this);
 		Alice = (EditText) findViewById(R.id.Alice);
@@ -54,6 +64,28 @@ public class MainActivity extends Activity implements TextWatcher {
 		John.addTextChangedListener(this);
 		Karen = (EditText) findViewById(R.id.Karen);
 		Karen.addTextChangedListener(this);
+
+		// EditText pointers for contact_info.xml
+		infoAlice = (EditText) findViewById(R.id.name0);
+		numAlice = (EditText) findViewById(R.id.number0);
+		infoBob = (EditText) findViewById(R.id.name1);
+		numBob = (EditText) findViewById(R.id.number1);
+		infoCarol = (EditText) findViewById(R.id.name2);
+		numCarol = (EditText) findViewById(R.id.number2);
+		infoDan = (EditText) findViewById(R.id.name3);
+		numDan = (EditText) findViewById(R.id.number3);
+		infoErin = (EditText) findViewById(R.id.name4);
+		numErin = (EditText) findViewById(R.id.number4);
+		infoFrank = (EditText) findViewById(R.id.name5);
+		numFrank = (EditText) findViewById(R.id.number5);
+		infoGena = (EditText) findViewById(R.id.name6);
+		numGena = (EditText) findViewById(R.id.number6);
+		infoHeather = (EditText) findViewById(R.id.name7);
+		numHeather = (EditText) findViewById(R.id.number7);
+		infoJohn = (EditText) findViewById(R.id.name8);
+		numJohn = (EditText) findViewById(R.id.number8);
+		infoKaren = (EditText) findViewById(R.id.name9);
+		numKaren = (EditText) findViewById(R.id.number9);
 	}
 
 	// @Override
@@ -139,31 +171,34 @@ public class MainActivity extends Activity implements TextWatcher {
 				vader.startAnimation(vaderAnim);
 			}
 		}
+		
+		//On click method code to set (in)visibility for EditText field in Contact_Info.xml
+		List<EditText> infoNames = Arrays.asList(infoAlice, infoBob, infoCarol,
+				infoDan, infoErin, infoFrank, infoGena, infoHeather, infoJohn,
+				infoKaren);
+		List<EditText> numNames = Arrays.asList(numAlice, numBob, numCarol,
+				numDan, numErin, numFrank, numGena, numHeather, numJohn,
+				numKaren);
+		
+		// Set visibility of all name fields in Contact Info .xml
+		for (int a = 1; a < numPplTry && a < infoNames.size(); a++) {
+//			Log.d(TAG, "infoNames<" + a + ">: "
+//					+ infoNames.get(a).getText().toString());
+//			Log.d(TAG, "infoNames<" + a + ">: "
+//					+ infoNames.get(a).getText().toString());
+			infoNames.get(a).setVisibility(View.VISIBLE);
+			numNames.get(a).setVisibility(View.VISIBLE);
+			}
 	}
 
 	// After entering contacts name and starting new activity, enter contact
 	// info (phone number or email address) and send out secret santas.
 
 	public void enterContactsInfo(View v) {
-		EditText infoAlice = (EditText) findViewById(R.id.name0);
-		EditText infoBob = (EditText) findViewById(R.id.name1);
-		EditText infoCarol = (EditText) findViewById(R.id.name2);
-		EditText infoDan = (EditText) findViewById(R.id.name3);
-		EditText infoErin = (EditText) findViewById(R.id.name4);
-		EditText infoFrank = (EditText) findViewById(R.id.name5);
-		EditText infoGena = (EditText) findViewById(R.id.name6);
-		EditText infoHeather = (EditText) findViewById(R.id.name7);
-		EditText infoJohn = (EditText) findViewById(R.id.name8);
-		EditText infoKaren = (EditText) findViewById(R.id.name9);
 
-		List<EditText> infoNames = Arrays.asList(infoAlice, infoBob, infoCarol,
-				infoDan, infoErin, infoFrank, infoGena, infoHeather, infoJohn,
-				infoKaren);
 
-//		// Set visibility of all name fields in Contact Info .xml
-//		for (int a = 1; a < actualNames.size() && a < numPplTry; a++) {
-//			infoNames.get(a).setVisibility(View.VISIBLE);
-//		}
+		Log.d(TAG, "Set content view: contact info");
+		setContentView(R.layout.contact_info);
 
 		/*
 		 * for (int y = 0; y < actualNames.size() && y < numPplTry; y++) { //
@@ -173,9 +208,5 @@ public class MainActivity extends Activity implements TextWatcher {
 		 * actualNames.get(y)); EditText nameField = infoNames.get(y); nameField
 		 * = viewsList.get(y); }
 		 */
-
-		setContentView(R.layout.contact_info);
-
 	}
-
 }
