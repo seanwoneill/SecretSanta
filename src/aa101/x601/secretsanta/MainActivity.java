@@ -2,8 +2,11 @@ package aa101.x601.secretsanta;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -18,23 +21,23 @@ public class MainActivity extends Activity implements TextWatcher {
 
 	private static final String TAG = MainActivity.class.getSimpleName();
 	EditText numPpl, Alice, Bob, Carol, Dan, Erin, Frank, Gena, Heather, John,
-			Karen, infoAlice, infoBob, infoCarol, infoDan, infoErin, infoFrank,
-			infoGena, infoHeather, infoJohn, infoKaren, numAlice, numBob,
-			numCarol, numDan, numErin, numFrank, numGena, numHeather, numJohn,
-			numKaren;
+			Karen, numAlice, numBob, numCarol, numDan, numErin, numFrank,
+			numGena, numHeather, numJohn, numKaren;
 	List<EditText> viewsList = Arrays.asList(Alice, Bob, Carol, Dan, Erin,
 			Frank, Gena, Heather, John, Karen);
 	int numPplTry;
 	View vader;
 	Animation vaderAnim;
-	List<String> actualNames = Arrays.asList("Alice", "Bob", "Carol", "Dan",
-			"Erin", "Frank", "Gena", "Heather", "John", "Karen");
-	List<EditText> infoNames = Arrays.asList(infoAlice, infoBob, infoCarol,
-			infoDan, infoErin, infoFrank, infoGena, infoHeather, infoJohn,
-			infoKaren);
-
 	List<EditText> numNames = Arrays.asList(numAlice, numBob, numCarol, numDan,
 			numErin, numFrank, numGena, numHeather, numJohn, numKaren);
+
+	// List<String> actualNames = Arrays.asList("Alice", "Bob", "Carol", "Dan",
+	// "Erin", "Frank", "Gena", "Heather", "John", "Karen");
+	// List<Double> actualNums = Arrays.asList(0., 1., 2., 3., 4., 5., 6., 7.,
+	// 8.,
+	// 9.);
+	// List<String> popNames;
+	// List<String> pickedNames;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -44,47 +47,36 @@ public class MainActivity extends Activity implements TextWatcher {
 		// EditText pointers for activity_main.xml
 		numPpl = (EditText) findViewById(R.id.numPpl);
 		numPpl.addTextChangedListener(this);
-		Alice = (EditText) findViewById(R.id.Alice);
+		Alice = (EditText) findViewById(R.id.name0);
 		Alice.addTextChangedListener(this);
-		Bob = (EditText) findViewById(R.id.Bob);
+		Bob = (EditText) findViewById(R.id.name1);
 		Bob.addTextChangedListener(this);
-		Carol = (EditText) findViewById(R.id.Carol);
+		Carol = (EditText) findViewById(R.id.name2);
 		Carol.addTextChangedListener(this);
-		Dan = (EditText) findViewById(R.id.Dan);
+		Dan = (EditText) findViewById(R.id.name3);
 		Dan.addTextChangedListener(this);
-		Erin = (EditText) findViewById(R.id.Erin);
+		Erin = (EditText) findViewById(R.id.name4);
 		Erin.addTextChangedListener(this);
-		Frank = (EditText) findViewById(R.id.Frank);
+		Frank = (EditText) findViewById(R.id.name5);
 		Frank.addTextChangedListener(this);
-		Gena = (EditText) findViewById(R.id.Gena);
+		Gena = (EditText) findViewById(R.id.name6);
 		Gena.addTextChangedListener(this);
-		Heather = (EditText) findViewById(R.id.Heather);
+		Heather = (EditText) findViewById(R.id.name7);
 		Heather.addTextChangedListener(this);
-		John = (EditText) findViewById(R.id.John);
+		John = (EditText) findViewById(R.id.name8);
 		John.addTextChangedListener(this);
-		Karen = (EditText) findViewById(R.id.Karen);
+		Karen = (EditText) findViewById(R.id.name9);
 		Karen.addTextChangedListener(this);
 
-		// EditText pointers for contact_info.xml
-		infoAlice = (EditText) findViewById(R.id.name0);
 		numAlice = (EditText) findViewById(R.id.number0);
-		infoBob = (EditText) findViewById(R.id.name1);
 		numBob = (EditText) findViewById(R.id.number1);
-		infoCarol = (EditText) findViewById(R.id.name2);
 		numCarol = (EditText) findViewById(R.id.number2);
-		infoDan = (EditText) findViewById(R.id.name3);
 		numDan = (EditText) findViewById(R.id.number3);
-		infoErin = (EditText) findViewById(R.id.name4);
 		numErin = (EditText) findViewById(R.id.number4);
-		infoFrank = (EditText) findViewById(R.id.name5);
 		numFrank = (EditText) findViewById(R.id.number5);
-		infoGena = (EditText) findViewById(R.id.name6);
 		numGena = (EditText) findViewById(R.id.number6);
-		infoHeather = (EditText) findViewById(R.id.name7);
 		numHeather = (EditText) findViewById(R.id.number7);
-		infoJohn = (EditText) findViewById(R.id.name8);
 		numJohn = (EditText) findViewById(R.id.number8);
-		infoKaren = (EditText) findViewById(R.id.name9);
 		numKaren = (EditText) findViewById(R.id.number9);
 	}
 
@@ -104,7 +96,7 @@ public class MainActivity extends Activity implements TextWatcher {
 
 		// Use try/catch to ensure numPpl input from user <= 10 and integer
 		// Force to 10 if > 10
-		// int numPplTry = 0;
+		int numPplTry = 1;
 		try {
 			numPplTry = Integer.parseInt(numPpl.getText().toString());
 			if (numPplTry > 10) {
@@ -114,17 +106,22 @@ public class MainActivity extends Activity implements TextWatcher {
 						"There cannot be more than 10 participants.\nNumber of participants has defaulted to 10.",
 						Toast.LENGTH_LONG).show();
 				// Log.d(TAG, "numPpl entered in try/if: " + numPplTry);
+			} else if (numPplTry == Integer.parseInt("")) {
+				numPplTry = 1;
 			} else {
 				numPplTry = Integer.parseInt(numPpl.getText().toString());
 				// Log.d(TAG, "numPpl entered in try/else: " + numPplTry);
 			}
 		} catch (Exception e) {
-			Log.e(TAG, "Number of participants user entry: Not a valid number",
-					e);
+			// Log.e(TAG,
+			// "Number of participants user entry: Not a valid number",
+			// e);
 		}
 
 		viewsList = Arrays.asList(Alice, Bob, Carol, Dan, Erin, Frank, Gena,
 				Heather, John, Karen);
+		numNames = Arrays.asList(numAlice, numBob, numCarol, numDan, numErin,
+				numFrank, numGena, numHeather, numJohn, numKaren);
 
 		// Iterate over list of EditText fields to set which are visible
 		// based on user input of number of participants (numPplTry).
@@ -137,19 +134,23 @@ public class MainActivity extends Activity implements TextWatcher {
 					&& viewsList.get(x).getVisibility() == View.VISIBLE) {
 				// Log.e(TAG, "2: invalid range & visible");
 				viewsList.get(x).setVisibility(View.GONE);
+				numNames.get(x).setVisibility(View.GONE);
 			} else if (x < numPplTry
 					&& viewsList.get(x).getVisibility() != View.VISIBLE) {
 				// Log.e(TAG, "3: valid range & not visible");
 				// Log.d(TAG, "set visible; x:numPplTry: " + x + " , " +
 				// numPplTry);
 				viewsList.get(x).setVisibility(View.VISIBLE);
+				numNames.get(x).setVisibility(View.VISIBLE);
 			} else {
 				// Log.e(TAG, "4: default; set GONE");
 				viewsList.get(x).setVisibility(View.GONE);
+				numNames.get(x).setVisibility(View.GONE);
 			}
 			// Log.d(TAG, "actualNames<" + x + ">: " + actualNames.get(x));
 		}
 
+		// Animate entry/exit of "finish" button
 		// Log.d(TAG, "Before first 'if'; numPplTry: " + numPplTry);
 		vader = findViewById(R.id.enterButton);
 		if (numPplTry < 10 && numPplTry > 0) {
@@ -171,42 +172,62 @@ public class MainActivity extends Activity implements TextWatcher {
 				vader.startAnimation(vaderAnim);
 			}
 		}
-		
-		//On click method code to set (in)visibility for EditText field in Contact_Info.xml
-		List<EditText> infoNames = Arrays.asList(infoAlice, infoBob, infoCarol,
-				infoDan, infoErin, infoFrank, infoGena, infoHeather, infoJohn,
-				infoKaren);
-		List<EditText> numNames = Arrays.asList(numAlice, numBob, numCarol,
-				numDan, numErin, numFrank, numGena, numHeather, numJohn,
-				numKaren);
-		
-		// Set visibility of all name fields in Contact Info .xml
-		for (int a = 1; a < numPplTry && a < infoNames.size(); a++) {
-//			Log.d(TAG, "infoNames<" + a + ">: "
-//					+ infoNames.get(a).getText().toString());
-//			Log.d(TAG, "infoNames<" + a + ">: "
-//					+ infoNames.get(a).getText().toString());
-			infoNames.get(a).setVisibility(View.VISIBLE);
-			numNames.get(a).setVisibility(View.VISIBLE);
-			}
 	}
 
 	// After entering contacts name and starting new activity, enter contact
 	// info (phone number or email address) and send out secret santas.
 
 	public void enterContactsInfo(View v) {
+		//
+		// Log.d(TAG, "Set content view: contact info");
+		//
+		// // List<String> pickNames = Arrays.asList();
+		// Log.d(TAG, "List copy numPpl check: " + numPplTry);
+		// List<String> popNames = copyList(viewsList, numPplTry);
+		// List<String> pickedNames = copyList(viewsList, numPplTry);
+		// Log.d(TAG,
+		// "size - pop; picked: " + popNames.size() + ","
+		// + pickedNames.size());
+		//
+		// for (int y = 0; y < numPplTry; y++) {
+		// Log.d(TAG, "Inside for loop");
+		// Random randGen = new Random();
+		// int currentRand = randGen.nextInt(numPplTry);
+		// Log.d(TAG, "currentRand: " + currentRand);
+		// }
 
+		String pickedName;
+		for (int i = 0; i < numPplTry; i++) {
+			Intent intent = new Intent(Intent.ACTION_VIEW);
+			intent.setData(Uri.fromParts("sms", numNames.get(i).getText()
+					.toString(), null));
+			String name = viewsList.get(i).getText().toString();
+			if (i < (numPplTry - 1)) {
+				pickedName = viewsList.get(i + 1).getText().toString();
+			} else {
+				pickedName = viewsList.get(0).getText().toString();
+			}
 
-		Log.d(TAG, "Set content view: contact info");
-		setContentView(R.layout.contact_info);
-
-		/*
-		 * for (int y = 0; y < actualNames.size() && y < numPplTry; y++) { //
-		 * String fieldFilled = viewsList.get(y).getText().toString(); //
-		 * Log.d(TAG, "fieldFilled: " + fieldFilled); // actualNames.set(y,
-		 * fieldFilled); // Log.d(TAG, "actualNames(" + y + "): " +
-		 * actualNames.get(y)); EditText nameField = infoNames.get(y); nameField
-		 * = viewsList.get(y); }
-		 */
+			String textBody = "Happy Holidays " + name
+					+ "!\nYou're Secret Santa pick is"+pickedName;
+			intent.putExtra("sms_body", textBody);
+			try {
+				startActivity(intent);
+			} catch (Exception ex) {
+				Log.e(TAG, "Could not send message", ex);
+				Toast.makeText(getApplicationContext(),
+						"Error - text could not be sent.", Toast.LENGTH_LONG)
+						.show();
+			}
+		}
 	}
+	//
+	// public List<String> copyList(List<EditText> list, int numPplTry) {
+	// List<String> copied = Arrays.asList();
+	// for (int b = 0; b < numPplTry; b++) {
+	// copied.add(list.get(b).getText().toString());
+	// }
+	// return copied;
+	//
+	// }
 }
